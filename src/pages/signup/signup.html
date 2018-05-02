@@ -1,0 +1,81 @@
+
+
+
+<ion-content>
+  <ion-header>
+
+  <ion-navbar>
+
+  </ion-navbar>
+
+</ion-header>
+  <div padding>
+    <form novalidate [formGroup]="account">
+      <ion-list>
+
+        <ion-item class="take_picture">
+          <img (click)="changePicture()" class="circular" [src]="chosenPicture || 'assets/img/avatar/photo.png'">
+         <!-- <img class="circular" [src]="chosenPicture || 'assets/img/avatar/photo.png'">-->
+        </ion-item>
+        <ion-item [ngClass]=" !account.controls.full_name.valid ? 'invalid-input':'valid-input' ">
+          <ion-label floating>Full Name</ion-label>
+          <ion-input type="text" formControlName="full_name" required="" name="full_name"></ion-input>
+        </ion-item>
+
+          <ion-item [ngClass]=" !account.controls.email.valid ? 'invalid-input':'valid-input' ">
+          <ion-label floating>Username (email)</ion-label>
+          <ion-input type="email" formControlName="email" required name="email"></ion-input>
+        </ion-item>
+
+        <!--
+        Want to add a Username? Here you go:
+
+        <ion-item>
+          <ion-label floating>Username</ion-label>
+          <ion-input type="text" formControlName="username" name="username"></ion-input>
+        </ion-item>
+        -->
+
+        <ion-item [ngClass]=" !account.controls.password.valid ? 'invalid-input':'valid-input' ">
+          <ion-label floating>Password</ion-label>
+          <ion-input type="password" min="6" required formControlName="password" name="password"></ion-input>
+        </ion-item>
+
+        <ion-item [ngClass]=" !account.controls.password_confirmation.valid ? 'invalid-input':'valid-input' ">
+          <ion-label floating>Repeat Password</ion-label>
+          <ion-input type="password" min="6" required formControlName="password_confirmation" name="password_confirmation"></ion-input>
+        </ion-item>
+        <!--<ion-item [ngClass]=" !account.controls.phone.valid ? 'invalid-input':'valid-input' ">
+          <ion-label floating>Phone</ion-label>
+          <ion-input type="phone" min="6" required formControlName="phone" name="phone"></ion-input>
+        </ion-item>-->
+        <ion-item [ngClass]=" !account.controls.dob.valid ? 'invalid-input':'valid-input' ">
+          <ion-label floating>Birthday</ion-label>
+          <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MM/DD/YYYY" min="1920" max="2000" formControlName="dob"></ion-datetime>
+        </ion-item>
+        <ion-list radio-group formControlName="gender">
+          <ion-item>
+
+            <ion-radio checked="true" value="2"></ion-radio><ion-label>Female</ion-label>
+          </ion-item>
+
+          <ion-item>
+
+            <ion-radio value="1"></ion-radio><ion-label>Male</ion-label>
+          </ion-item>
+
+          <ion-item>
+
+            <ion-radio value="0"></ion-radio><ion-label>Other</ion-label>
+          </ion-item>
+        </ion-list>
+        <div class="custom-button" margin-top="">
+
+          <button class="button_qr custom-shadow" (click)="doSignup()">Sign Up</button>
+        </div>
+
+
+      </ion-list>
+    </form>
+  </div>
+</ion-content>

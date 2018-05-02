@@ -1,0 +1,170 @@
+<!--
+  Generated template for the MatchPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <button ion-button="" menuToggle=""><ion-icon name="menu">
+
+    </ion-icon></button>
+
+    <ion-title>My Lookouts</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="notifications"></ion-icon>
+      </button>
+      <button ion-button icon-only>
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div class="page-body" *ngIf="!edit">
+      <div class="form-body" text-center="">
+       <ion-row>
+         <ion-col>
+           <div float-right class="my-checkbox" *ngIf="dating && user && dating.user_id == user.id">
+             <ion-label for="edit" text-uppercase>Edit</ion-label>
+             <ion-checkbox name="edit" [(ngModel)]="edit">
+             </ion-checkbox>
+           </div>
+         </ion-col>
+       </ion-row>
+
+        <ngx-qrcode [qrc-value] = "createdCode" qrc-class = "aclass" qrc-errorCorrectionLevel = "L">
+        </ngx-qrcode>
+      </div>
+  </div>
+  <div class="page-body" *ngIf="edit">
+    <div class="form-body">
+
+        <h1 class="form_screen_heading" text-left="" margin-top=""  *ngIf="user && user.role_id != 10">Select Your Match <span float-right (click)="addNewUser(10)">Add New</span></h1>
+      <div float-right class="my-checkbox" *ngIf="dating && user && dating.user_id == user.id">
+        <ion-label for="edit" text-uppercase>Edit</ion-label>
+        <ion-checkbox id="edit" name="edit" [(ngModel)]="edit">
+        </ion-checkbox>
+      </div>
+        <div class="form_holder custom-shadow" margin-bottom="" *ngIf="user && user.role_id != 10">
+            <ion-item class="app-select">
+                <select-searchable
+                        [(ngModel)]="dater_ids"
+                        title="My Match"
+                        itemValueField="id"
+                        itemTextField="full_name"
+                        [items]="daters"
+                        data_type="5"
+                        [disabled]="daters.length == 0"
+                        (onSearch)="searchDaters($event)"
+                        [canSearch]="true">
+                </select-searchable>
+            </ion-item>
+
+        </div>
+      <div class="form_holder custom-shadow" margin-bottom="" *ngIf="user && user.role_id != 10">
+          <ion-item class="app-select">
+            <select-searchable
+                    [(ngModel)]="lookout_id"
+                    title="Lookouts"
+                    itemValueField="id"
+                    itemTextField="full_name"
+                    [items]="lookouts"
+                    data_type="10"
+                    [multiple]="true"
+                    [disabled]="lookouts.length == 0"
+                    (onSearch)="searchGuards($event)"
+                    (onChange)="onSelect($event)"
+                    [canSearch]="true">
+            </select-searchable>
+          </ion-item>
+
+        </div>
+      <ion-item *ngIf="user && user.role_id == 10" margin-bottom="" text-center margin-top="" text-capitalize="">
+        Dater Name : <b>{{dating.dater_name}}</b>
+      </ion-item>
+      <ion-item margin-top="">
+      <ion-label floating>Dating Date</ion-label>
+      <ion-datetime [disabled]="user && user.role_id == 10" displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY" min="2018" [(ngModel)]="dating_date"></ion-datetime>
+      </ion-item>
+      <h1 class="form_screen_heading" text-left="" *ngIf="(dating && user && dating.user_id == user.id && edit) || !dating" margin-top="" float-left="">Emergency Number</h1>
+
+      <div class="form_holder custom-shadow" margin-bottom="" *ngIf="(dating && user && dating.user_id == user.id && edit) || !dating">
+        <ion-item class="app-select">
+
+          <ion-input type="phone" [(ngModel)]="phone"></ion-input>
+        </ion-item>
+      </div>
+        <ion-item text-center="" *ngIf="dating && edit">
+            Dating Confirmed : <b>{{dating && dating.is_confirmed == 1? 'Yes' :'No'}}</b>
+        </ion-item>
+        <!--<ion-list>
+          <form padding="" name="ServiceForm">
+            <ion-item>
+              <ion-label floating>Name of my Match</ion-label>
+              <ion-input type="text" [(ngModel)]="match_name" name="match_name"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label floating>Mobile</ion-label>
+              <ion-input type="text" [(ngModel)]="match_mobile" name="match_mobile"></ion-input>
+            </ion-item>
+          </form>
+        </ion-list>-->
+
+      </div>
+
+
+
+      <div class="form-body" margin-top=""  *ngIf="user && user.role_id != 10">
+        <h1 class="form_screen_heading" text-left="" margin-top="">Generate Unique Code</h1>
+        <div class="form_holder " >
+
+
+          <ion-grid>
+            <ion-row>
+
+
+              <ion-col col-6 class="code-input">
+                <ion-input type="text" [(ngModel)]="unique_code" placeholder="Type your code here"></ion-input>
+              </ion-col>
+
+              <ion-col col-1 class="code-input-or">
+                <span class="or-text" text-center="">Or</span>
+              </ion-col>
+
+              <ion-col col-5 class="code-input-btn" >
+                <button (click)="generateUniqueCode()" ion-button>Generate</button>
+              </ion-col>
+
+
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
+    <div *ngIf="code_generated" class="genrate-code-con" style="position:relative;">
+      <div class="genrate-code" style="top: 16vh;" *ngIf="unique_array.length <= 8">
+        <span *ngFor="let code of unique_array"  class="custom-shadow">{{code}}</span>
+      </div>
+
+        <div class="genrate-code" style="top: 16vh;" *ngIf="unique_array.length > 8">
+            <span class="custom-shadow">{{unique_code}}</span>
+        </div>
+    </div>
+    <ion-row *ngIf="user && user.role_id != 5 && dating && dating.phone" text-center="" float-left="" style="width: 100%" margin-top="">
+      <ion-col ><img (click)="call()"  style="width: 50px;" src="assets/img/phone.png"></ion-col>
+    </ion-row>
+    <div class="full-button-con" *ngIf="(dating && user && dating.user_id == user.id && edit) || !dating">
+        <button [disabled]="!unique_code || !phone || !lookout_id || !dating_date" ion-button [class]="(unique_code && lookout_id && dating_date)?'background_green custom-shadow button-ios':'custom-shadow button-ios'" class="custom-shadow" (click)="notifyLookout()">Save & Notify</button>
+    </div>
+  </div>
+
+
+
+
+</ion-content>

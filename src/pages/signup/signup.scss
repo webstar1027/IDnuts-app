@@ -1,0 +1,85 @@
+page-signup {
+  $transparent-white: rgba(255, 255, 255, .6);
+  // This is just to make the header transparent and button/icon with white color
+  .toolbar-content,
+  span {
+    color: white;
+  }
+  .toolbar-background,
+  ion-navbar,
+  ion-header {
+    background: transparent !important;
+    background-color: transparent !important;
+    border:none !important;
+  }
+  .header-md::after,
+  .toolbar-background-ios {
+    background-image: none;
+    border-bottom: 0;
+  }
+
+  // Input items
+  ion-item {
+    border-radius: 3px !important;
+    padding-left: 10px !important;
+    margin-bottom: 15px !important;
+    margin-bottom: 10px;
+    color: #fff !important;
+    background-color: rgba(255, 255, 255, .2) !important;
+    font-size: 0.9em;
+  }
+  ::-webkit-input-placeholder {
+    color: white !important;
+  }
+  .item-inner {
+    border-bottom: 0 !important;
+    box-shadow: none !important;
+  }
+  // --
+  .login-button {
+    text-transform: none;
+    border-radius: 3px !important;
+  }
+  // Facebook icon
+  ion-icon {
+    padding-right: 10px;
+    font-size: 2.2rem;
+  }
+  .take_picture
+  {
+    border-radius: 50% !important;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    background-color: white !important;
+    margin-top: 25px;
+    img{
+      width: 50px;
+      margin-left: 7.6px;
+      border-radius: 5px;
+      margin-top: 4px;
+    }
+  }
+  ion-list ion-item.item-radio {
+    display: inline-block !important;
+    padding: 0 !important;
+    background: none !important;
+    width: 32% !important;
+    text-align: right;
+  }
+  ion-radio.radio .radio-checked {
+    border-color: #fff;
+  }
+  ion-radio.radio .radio-icon  {
+    border-color: #fff;
+  }
+  .item-radio.item-radio-checked ion-label
+  {
+    color: #fff;
+  }
+  .item-radio .radio-inner
+  {
+    background-color: #fff;
+  }
+}

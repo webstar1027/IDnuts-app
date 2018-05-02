@@ -1,0 +1,33 @@
+page-role {
+  ion-card-content.img_heading{
+    background:#2c4afc;
+  }
+
+  ion-card-content.img_heading ion-card-title{
+    color: #ffffff;
+    font-size: 16px;
+  }
+
+  ion-card img
+  {
+    height: 20vh;
+    object-fit: cover;
+  }
+  .custom-shadow
+  {
+    border-radius: 0;
+  }
+
+  .toolbar-content,
+  span {
+    color: white;
+  }
+  .toolbar-background,
+  ion-navbar,
+  ion-header {
+    background: transparent !important;
+    background-color: transparent !important;
+    border:none !important;
+  }
+
+}

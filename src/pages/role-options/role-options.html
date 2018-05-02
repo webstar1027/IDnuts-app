@@ -1,0 +1,14 @@
+<ion-content padding>
+  <ion-list radio-group [(ngModel)]="role">
+
+    <ion-list-header>
+      Select Your Role
+    </ion-list-header>
+
+    <ion-item *ngFor="let item of roles.options">
+      <ion-label>{{item.name}}</ion-label>
+      <ion-radio (click)="close()" value="{{item.value}}"></ion-radio>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

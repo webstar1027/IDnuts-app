@@ -1,0 +1,38 @@
+<!--
+  Generated template for the DatingsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <button ion-button="" menuToggle=""><ion-icon name="menu">
+
+    </ion-icon></button>
+
+    <ion-title>My Lookouts</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="notifications"></ion-icon>
+      </button>
+      <button ion-button icon-only>
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <button *ngFor="let dating of datings" ion-item (click)="viewDating(dating)">
+      {{user && user.role_id == 10 ? dating.dater_name:dating.dating_with_name}}
+    </button>
+    <h1 *ngIf="datings.length == 0">No Lookout Found!</h1>
+  </ion-list>
+  <ion-row *ngIf="user && (user.role_id == 1 || user.role_id == 5)">
+    <ion-col text-center=""><span color="primary" ion-button="" (click)="addNewUser(10)">New Lookout</span></ion-col>
+  </ion-row>
+</ion-content>

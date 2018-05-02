@@ -1,0 +1,318 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+// Material Design Sidemenu
+ion-menu {
+  .menu-header {
+    padding: 5px 15px;
+    background-size: cover;
+    color: white;
+    border-bottom: 1px solid #ccc;
+    .name {
+      font-weight: 500;
+      margin-bottom: 3px;
+    }
+    .e-mail {
+      margin-top: 0;
+      margin-bottom: 5px;
+    }
+  }
+  .user-avatar {
+    padding: .5em;
+    height: 80px;
+    width: 80px;
+    object-fit: cover;
+  }
+  h3,
+  .label
+  {
+    color: #999;
+    font-weight: 400;
+  }
+  ion-icon {
+    color: #777;
+  }
+}
+.round {
+  border-radius: 50%;
+}
+.custom-shadow{
+  -moz-box-shadow: 0px 0px 40px 0px $shadow-color;
+  -webkit-box-shadow: 0px 0px 40px 0px $shadow-color;
+  box-shadow: 0px 0px 40px 0px $shadow-color;
+}
+.custom-button
+{
+  width:100%;
+  float: left;
+  text-align: center;
+  margin-bottom: 20px;
+  .button_qr{
+
+    background: #2c4afc;
+    padding: 15px 15px;
+    display: inline-block;
+    float: none;
+    min-width: 200px;
+  }
+  button{
+    display: inline-block;
+    color:#fff;
+    font-size:22px;
+  }
+}
+
+.scroll-content
+{
+  background: url('../assets/img/background/background.png') no-repeat;
+  background-size: cover;
+}
+.menu-inner ion-list .item
+{
+  background-color: transparent;
+}
+.menu-inner ion-list .item ion-label,.menu-inner ion-list .item ion-icon
+{
+  color: #fff;
+}
+.item.item-input
+{
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  border-bottom: 1px solid #ccc;
+}
+
+
+.form_screen_heading{
+  color: #ffffff;
+  font-size: 18px;
+  margin: 15px 0 10px 0 !important;
+  font-weight: 300;
+}
+.form_holder{
+  width: 100%;
+  float: left;
+  background: $form-holder-bg;
+
+}
+
+// Input items
+ion-item {
+  border-radius: 3px !important;
+  padding-left: 10px !important;
+  margin-bottom: 15px !important;
+  margin-bottom: 10px;
+  color: #fff !important;
+  background-color: rgba(255, 255, 255, .2) !important;
+  font-size: 0.9em;
+}
+::-webkit-input-placeholder {
+  color: white !important;
+}
+.item-inner {
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+ form ion-item.item-input ion-label{
+  color: #ffffff !important;
+}
+
+form ion-item.item-input-has-value ion-label {
+  color: #cccccc !important;
+}
+form ion-item.item-input-has-focus ion-label {
+  color: #cccccc !important;
+}
+.button_cr{
+  background: #ffffff;
+  color: #2c4afc !important;
+  padding: 10px 30px;
+}
+.form-body{
+  width: 100%;
+  float: left;
+  position: relative;
+}
+.clear-all{
+  background: #ffffff;
+  color: #2c4afc;
+  padding: 20px 5%;
+  font-size: 20px;
+  width: 35%;
+  float: left;
+}
+.save-and-continue{
+  background: #2c4afc;
+  color:#ffffff;
+  padding: 20px 5%;
+  font-size: 20px;
+  width: 60%;
+  float: right;
+}
+.btn_holder{
+  bottom: 20px;
+}
+
+
+.invalid-input.input-has-value
+{
+  border-color: #a94442;
+}
+.valid-input.input-has-value
+{
+  border-color: #42A948;
+}
+
+.page-body {
+  height: 100%;
+  position: relative;
+}
+
+.genrate-code-con{
+  width: 100%;
+  float: left;
+  text-align: center;
+}
+.genrate-code ,.full-button-con{
+ /* position: absolute;*/
+  bottom: 20px;
+  margin-top: 30px;
+  /*left: 50%;
+  transform: translateX(-50%);*/
+  display: inline-block;
+  width: 100%;
+}
+.genrate-code span{
+  background: #2b4afd;
+  padding: 10px;
+  margin-left: 10px;
+  color: #ffffff;
+  font-size: 15px;
+}
+//view page
+.view-info{
+  border-bottom:1px solid #cccccc ;
+  margin-bottom: 15px;
+  float: left;
+  width: 100%;
+}
+.view-info span.felid-name{
+  width: 100%;
+  float:left;
+  color: #bdbdbd;
+  font-size: 10px;
+  margin-bottom: 3px;
+}
+.view-info span.felid-value{
+  width: 100%;
+  float:left;
+  color: #ffffff;
+  font-size: 19px;
+  margin-bottom: 4px;
+  font-weight: 300;
+}
+ol span.felid-name
+{
+  position: absolute;
+  top: -16px;
+  left: 0;
+}
+ol.view-info
+{
+  padding-left: 15px;
+  position: relative;
+}
+ol li.felid-value {
+  color: white;
+  padding: 5px;
+}
+ion-item.app-select{
+  background: none !important;
+  margin-bottom: 0 !important;
+}
+ion-item.app-select ion-label ,ion-item.app-select ion-select .select-icon-inner{
+  color: #ffffff !important;
+  font-size: 18px;
+}
+
+.or-text{
+  color: #ffffff;
+  font-size: 18px;
+  margin:15px 0 11px 5px;
+  float: left;
+}
+ion-col.code-input-btn button{
+  background: none;
+  color: #ffffff;
+  font-size: 20px;
+  box-shadow: none;
+  padding: 0;
+  float: left;
+  width: 100%;
+  color: #ff51ea;
+  text-transform: none;
+
+}
+ion-col.code-input ion-input{
+  border-bottom: 1px solid #ffffff;
+  font-size: 17px;
+}
+ion-col.code-input ion-input.input-md{
+  color: #ffffff !important;
+}
+
+.full-button-con button{
+  width: 100%;
+  font-size: 20px;
+  height: 4.5rem;
+  text-transform: none;
+}
+
+.qrcode-con img{
+  background:#f4f4f4 ;
+  padding: 1.5rem;
+}
+ion-buttons.bar-buttons {
+  display: none;
+}
+//responsive
+@media only screen and (max-width: 400px)  {
+  ion-col.code-input ion-input ,
+  ion-col.code-input-or span,
+  ion-col.code-input-btn button,
+  ion-item.app-select ion-label,
+  .full-button-con button
+  {
+    font-size: 11px;
+  }
+  ion-select div.select-text{
+    font-size: 12px;
+  }
+}
+.background_green
+{
+  background-color: #32db64 !important;
+}
+@media only screen and (max-width: 600px){
+  .clear-all{
+    padding: 22px 5%;
+    font-size: 17px;
+  }
+  .save-and-continue{
+    padding: 22px 5%;
+    font-size: 17px;
+  }
+}

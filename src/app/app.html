@@ -1,0 +1,21 @@
+<ion-menu [content]="content" >
+  <ion-content>
+    <div class="menu-header">
+      <!--material-design-background-->
+      <img class="user-avatar round" [src]="image" onerror="this.src='assets/img/avatar/avatar.jpg'"
+      />
+      <p class="name">{{name || 'Not Logged In'}}</p>
+      <p class="e-mail">{{email || ''}}</p>
+    </div>
+    <ion-list no-lines>
+      <div *ngFor="let p of pages">
+        <button menuClose="left" ion-item detail-none  (click)="openPage(p)" *ngIf="p.allowedTo.indexOf(role)>-1 || p.allowedTo.indexOf(0)>-1">
+          <ion-icon [name]="p.icon" item-left></ion-icon>
+          {{p.title}}
+        </button>
+      </div>
+
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-nav #content [root]="rootPage"></ion-nav>

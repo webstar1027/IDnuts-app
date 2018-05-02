@@ -1,0 +1,62 @@
+<!--
+  Generated template for the ScanQrPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <button ion-button="" menuToggle=""><ion-icon name="menu">
+
+    </ion-icon></button>
+
+    <ion-title>Scan QR Code</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="notifications"></ion-icon>
+      </button>
+      <button ion-button icon-only>
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div class="page-body">
+
+    <div class="form-body">
+      <h1 class="form_screen_heading" text-left="" margin-top="">Scan QR Code</h1>
+
+      <div class="qrcode-con">
+        <img src="assets/img/scanQr.jpg">
+      </div>
+    </div>
+
+    <div class="btn_holder">
+      <div class="custom-button" margin-top="">
+        <div class="clear-all custom-shadow">
+    <span class="clear-all-btn" (click)="goBack()">
+      Cancel
+    </span>
+
+        </div>
+
+        <div class="save-and-continue  custom-shadow">
+
+      <span class="save-and-continue-btn " (click)="scan()">
+        Scan QR Code
+    </span>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+  </div>
+</ion-content>

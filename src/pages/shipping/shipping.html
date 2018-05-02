@@ -1,0 +1,88 @@
+<!--
+  Generated template for the ShippingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <button ion-button="" menuToggle=""><ion-icon name="menu">
+
+    </ion-icon></button>
+
+    <ion-title>IDnuts</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="notifications"></ion-icon>
+      </button>
+      <button ion-button icon-only>
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div class="form-body">
+
+    <h1 class="form_screen_heading" text-left="">{{is_service ? 'Service':'Shipping'}} Information</h1>
+    <div class="form_holder custom-shadow">
+
+      <ion-list>
+        <form padding="" name="kidsForm"  [formGroup]="shipping">
+          <ion-item>
+            <ion-label floating>{{is_service ? 'Service':'Shipper'}} Company</ion-label>
+            <ion-input type="text" formControlName="company" name="company"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Location</ion-label>
+            <ion-input type="text" formControlName="location" name="location"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Product Type</ion-label>
+            <ion-input type="text" formControlName="product_type" name="product_type"></ion-input>
+          </ion-item>
+          <ion-item *ngIf="!is_service">
+            <ion-label floating>Shipped By</ion-label>
+            <ion-input type="text" formControlName="ship_by" name="ship_by"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>{{is_service ? 'Service':'Shipper'}} Date</ion-label>
+            <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MM/DD/YYYY" min="2018" formControlName="shipping_date"></ion-datetime>
+          </ion-item>
+
+        </form>
+
+
+
+
+      </ion-list>
+    </div>
+
+
+
+    <div class="btn_holder">
+      <div class="custom-button" margin-top="">
+        <div class="clear-all custom-shadow">
+    <span class="clear-all-btn" (click)="clearAll()">
+      Clear All
+    </span>
+
+        </div>
+
+        <div class="save-and-continue  custom-shadow">
+
+      <span class="save-and-continue-btn " (click)="newShipping()">
+        Save And Continue
+    </span>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</ion-content>

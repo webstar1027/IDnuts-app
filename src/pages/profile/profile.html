@@ -1,0 +1,97 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <button ion-button="" menuToggle=""><ion-icon name="menu">
+
+    </ion-icon></button>
+
+    <ion-title>My Profile</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="notifications"></ion-icon>
+      </button>
+      <button ion-button icon-only>
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content parallax-header no-bounce class="bg-modal">
+  <div class="header-image"></div>
+  <div class="main-content" text-wrap text-center>
+    <img (click)="changePicture()" class="circular" [src]="chosenPicture || 'assets/img/avatar/avatar.jpg'">
+    <h2>{{user.full_name || "Not Available"}}</h2>
+    <!--<p>{{user.occupation}} &bull; {{user.location}}</p>-->
+    <!--<p class="profile-description">{{user.description || 'Description: No Description'}}</p>-->
+    <hr>
+    <ion-list no-lines>
+      <ion-item>
+      <ion-icon name="mail" color="primary" item-start></ion-icon>
+      <p>Email</p>
+      {{user.email || "Not Available"}}
+    </ion-item>
+      <ion-item>
+          <ion-icon item-start name="person" color="primary"></ion-icon>
+        <p>Full Name</p>
+        <ion-input type="text" [(ngModel)]="user.full_name" required="" name="full_name"></ion-input>
+      </ion-item>
+
+      <!--<ion-item>
+        <ion-icon item-start name="call" color="primary"></ion-icon>
+        <p>Mobile</p>
+        {{user.phone || "Not Available"}}
+      </ion-item>
+      <ion-item>
+        <ion-icon item-start name="pin" color="primary"></ion-icon>
+        <p>Address</p>
+        {{user.address || 'Not Available'}}
+      </ion-item>-->
+      <ion-item>
+        <ion-icon item-start name="calendar" color="primary"></ion-icon>
+        <p>Date of Birth</p>
+        <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MM/DD/YYYY" min="1920" max="2000" [(ngModel)]="user.dob"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-icon item-start name="male" color="primary"></ion-icon>
+
+        <p>Gender</p>
+        <ion-select interface="action-sheet" [(ngModel)]="user.gender">
+            <ion-option value="1">{{genders[1]}}</ion-option>
+            <ion-option value="2">{{genders[2]}}</ion-option>
+            <ion-option value="0">{{genders[0]}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <!--<ion-item (click)="shareReferralLink(user.shareAble)">
+        <ion-icon item-start name="share" color="secondary"></ion-icon>
+        <p>Referral Link</p>
+        <span style="-webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text; ">
+      {{user.shareAble || 'Not Available'}}
+    </span>
+      </ion-item>-->
+    </ion-list>
+    <div class="custom-button" margin-top="">
+      <button class="button_qr custom-shadow" (click)="doUpdate()">Update</button>
+    </div>
+
+    <!--<h2>Get in touch</h2>
+    <hr>
+    <a href="#" button ion-button block color="linkedin" icon-start>
+      <ion-icon name='logo-linkedin'></ion-icon>
+      LinkedIn
+    </a>
+    <a href="#" button ion-button block color="fb" icon-start>
+      <ion-icon name='logo-facebook'></ion-icon>
+      Facebook
+    </a>
+    <a href="#" button ion-button block color="danger" icon-start>
+      <ion-icon name='logo-youtube'></ion-icon>
+      Youtube
+    </a>-->
+  </div>
+
+</ion-content>

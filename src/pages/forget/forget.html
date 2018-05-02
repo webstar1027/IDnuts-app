@@ -1,0 +1,18 @@
+<ion-content padding class="transparent-header">
+  <ion-header>
+    <ion-navbar>
+    </ion-navbar>
+  </ion-header>
+  <img class="logo" src="assets/imgs/UQ@3x.png" />
+  <div padding>
+    <form [formGroup]="account">
+      <ion-item [ngClass]=" !account.controls.email.valid ? 'invalid-input':'valid-input' ">
+        <ion-label floating>Username (email)</ion-label>
+        <ion-input type="email" formControlName="email" name="email"></ion-input>
+      </ion-item>
+      <div class="custom-button" margin-top="">
+        <button class="button_qr custom-shadow" (click)="recover()">Recover</button>
+      </div>
+    </form>
+  </div>
+</ion-content>

@@ -1,0 +1,91 @@
+<!--
+  Generated template for the KidsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <button ion-button="" menuToggle=""><ion-icon name="menu">
+
+    </ion-icon></button>
+
+    <ion-title>IDnuts</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="notifications"></ion-icon>
+      </button>
+      <button ion-button icon-only>
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div class="form-body">
+
+    <h1 class="form_screen_heading" text-left="">Kids Information</h1>
+    <div class="form_holder custom-shadow">
+
+
+      <ion-list>
+        <form padding="" [formGroup]="kid">
+          <ion-item>
+            <ion-label floating>Kids Name</ion-label>
+            <ion-input type="text" formControlName="name" name="name"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Kids School Name</ion-label>
+            <ion-input type="text" formControlName="school" name="school"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Kids Class/Grade</ion-label>
+            <ion-input type="text" formControlName="class" name="class"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Kids TimeIn</ion-label>
+            <ion-datetime displayFormat="hh:mm A" pickerFormat="hh mm A" formControlName="time_in"></ion-datetime>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Kids TimeOut</ion-label>
+            <ion-datetime displayFormat="hh:mm A" pickerFormat="hh mm A" formControlName="time_out"></ion-datetime>
+          </ion-item>
+
+        </form>
+
+
+
+
+      </ion-list>
+    </div>
+
+
+
+    <div class="btn_holder">
+      <div class="custom-button" margin-top="">
+        <div class="clear-all custom-shadow">
+    <span class="clear-all-btn" (click)="clearAll()">
+      Clear All
+    </span>
+
+        </div>
+
+        <div class="save-and-continue  custom-shadow">
+
+      <span class="save-and-continue-btn " (click)="addKid()">
+        Save And Continue
+    </span>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+</ion-content>

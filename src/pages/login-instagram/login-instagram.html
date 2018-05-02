@@ -1,0 +1,35 @@
+<ion-content padding class="transparent-header">
+  <ion-header>
+    <ion-navbar>
+    </ion-navbar>
+  </ion-header>
+  <img class="logo" src="assets/imgs/UQ@3x.png" />
+  <div padding>
+    <form [formGroup]="account">
+      <ion-item [ngClass]=" !account.controls.email.valid ? 'invalid-input':'valid-input' ">
+        <ion-label floating>Username (email)</ion-label>
+        <ion-input type="email" formControlName="email" name="email"></ion-input>
+      </ion-item>
+      <ion-item [ngClass]=" !account.controls.password.valid ? 'invalid-input':'valid-input' ">
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password" min="6" formControlName="password" name="password"></ion-input>
+      </ion-item>
+      <div class="custom-button" margin-top="">
+
+        <button class="button_qr custom-shadow" (click)="doLogin()">Sign In</button>
+      </div>
+    </form>
+  </div>
+  <div text-center="">
+    <button style="
+    font-size: 19px;
+    font-weight:  normal;
+    margin-top: 5px;
+" ion-button block clear (click)="goToRecovery()" color="light" class="login-button"> Forget Password?</button>
+  </div>
+  <div class="">
+<span style="width:100%;margin-top: 22px;font-size:  18px;" float-left="" text-center="" margin-top="">Dont have account?  <span style="margin-left:20px" block clear (click)="goToSignup()" color="light" class="login-button" text-left="">SIGN UP</span></span>
+
+
+  </div>
+</ion-content>

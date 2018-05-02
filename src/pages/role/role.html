@@ -1,0 +1,30 @@
+<ion-content padding>
+    <ion-header>
+
+        <ion-navbar>
+
+        </ion-navbar>
+
+    </ion-header>
+  <h1 text-center="" padding="" style="color: white;">Select Your Role</h1>
+
+<span *ngFor="let roleArray of roles">
+<ion-row>
+   <ion-col *ngFor="let role of roleArray" no-padding="">
+      <ion-card  class="custom-shadow" (click) = "options(role)">
+        <img [src]="role.imageUrl"/>
+        <ion-card-content class="img_heading" no-padding="">
+          <ion-card-title text-center no-margin="">
+            {{role.title}}
+          </ion-card-title>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+</ion-row>
+
+</span>
+  <!--<div class="custom-button" margin-top="">
+
+      <button class="button_qr custom-shadow">QR Code Scan</button>
+  </div>-->
+</ion-content>

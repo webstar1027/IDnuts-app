@@ -1,0 +1,88 @@
+<!--
+  Generated template for the KidsInfoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <button ion-button="" menuToggle=""><ion-icon name="menu">
+
+    </ion-icon></button>
+
+    <ion-title>IDnuts</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="notifications"></ion-icon>
+      </button>
+      <button ion-button icon-only>
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div class="page-body">
+
+    <div class="form-body">
+      <h1 class="form_screen_heading" text-left="" margin-top="">Kids Information
+
+        <div float-right class="my-checkbox" *ngIf="kid.user_id == user.id">
+          <ion-label for="edit" text-uppercase>Edit</ion-label>
+          <ion-checkbox id="edit" name="edit" [(ngModel)]="edit">
+          </ion-checkbox>
+        </div>
+
+      </h1>
+      <ngx-qrcode *ngIf="!edit" [qrc-value] = "createdCode" qrc-class = "aclass" qrc-errorCorrectionLevel = "L">
+      </ngx-qrcode>
+      <div class="form_holder custom-shadow" padding="" *ngIf="edit">
+        <div class="view-info">
+          <span class="felid-name">Kids Name</span>
+          <span class="felid-value">{{kid.name}}</span>
+        </div>
+        <div class="view-info">
+          <span class="felid-name">Kids School Name</span>
+          <span class="felid-value">{{kid.school}}</span>
+        </div>
+        <div class="view-info">
+          <span class="felid-name">Kids Grade</span>
+          <span class="felid-value">{{kid.class}}</span>
+        </div>
+        <div class="view-info">
+          <span class="felid-name">Assigned Teacher</span>
+          <span class="felid-value">{{kid.teacher}}</span>
+        </div>
+        <ol class="view-info">
+          <span class="felid-name">Assigned Guardians</span>
+          <li class="felid-value" *ngFor="let guardian of kid.guardians">{{guardian.full_name}}</li>
+        </ol>
+      </div>
+      <div *ngIf="(user.role_id == 2 || user.role_id == 1) && kid.user_id == user.id && edit" margin-top="" text-center="">
+        <span ion-button color="danger" class="custom-shadow" (click)="deleteKid()">Delete Kid</span>
+        <span ion-button class="custom-shadow" (click)="assign()">{{kid.teacher ? 'Update':'Assign'}} Teacher / Guardian</span>
+      </div>
+    </div>
+
+  <ion-row *ngIf="user && user.role_id != 2 && kid && kid.phone" text-center="" float-left="" style="width: 100%" margin-top="">
+    <ion-col ><img (click)="call()"  style="width: 50px;" src="assets/img/phone.png"></ion-col>
+  </ion-row>
+
+
+    <div *ngIf="kid.unique_code && edit" class="genrate-code-con" style="position:relative;">
+
+      <div class="genrate-code" style="/*top: 16vh;*/">
+        <h1 style="color: white;padding-bottom: 10px;">Unique Code</h1>
+        <span *ngFor="let code of unique_array" class="custom-shadow">{{code}}</span>
+      </div>
+    </div>
+
+
+  </div>
+
+
+</ion-content>
